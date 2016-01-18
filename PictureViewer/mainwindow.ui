@@ -45,7 +45,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>TextLabel</string>
+         <string>请导入图片</string>
         </property>
        </widget>
       </item>

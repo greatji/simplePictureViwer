@@ -234,42 +234,56 @@ QImage * MainWindow::contrast(double delta, QImage * origin) {
 
 void MainWindow::on_pushButton_clicked()
 {
+    if (!newImg)
+        return;
     newImg = changeLight(20, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
+    if (!newImg)
+        return;
     newImg = changeLight(-20,newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_pushButton_6_clicked()
 {
+    if (!newImg)
+        return;
     ui->label->setPixmap(QPixmap::fromImage(*img));
     *newImg = *img;
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
+    if (!newImg)
+        return;
     newImg = greyScale(img);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
+    if (!newImg)
+        return;
     newImg = warm(20, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_pushButton_5_clicked()
 {
+    if (!newImg)
+        return;
     newImg = cool(20, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_actionSave_triggered()
 {
+    if (!newImg)
+        return;
     QString filename = QFileDialog::getSaveFileName(this,
         tr("Save Image"),
         "",
@@ -292,6 +306,8 @@ void MainWindow::on_actionSave_triggered()
 
 void MainWindow::on_pushButton_7_clicked()
 {
+    if (!newImg)
+        return;
     QMatrix matrix;
     matrix.rotate(-90);
     *newImg = newImg->transformed(matrix);
@@ -300,6 +316,8 @@ void MainWindow::on_pushButton_7_clicked()
 
 void MainWindow::on_pushButton_8_clicked()
 {
+    if (!newImg)
+        return;
     QMatrix matrix;
     matrix.rotate(90);
     *newImg = newImg->transformed(matrix);
@@ -308,24 +326,32 @@ void MainWindow::on_pushButton_8_clicked()
 
 void MainWindow::on_pushButton_9_clicked()
 {
+    if (!newImg)
+        return;
     newImg = saturation(20, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_pushButton_10_clicked()
 {
+    if (!newImg)
+        return;
     newImg = saturation(-20, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_pushButton_11_clicked()
 {
+    if (!newImg)
+        return;
     newImg = contrast(1.1, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_pushButton_12_clicked()
 {
+    if (!newImg)
+        return;
     newImg = contrast(0.9, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
