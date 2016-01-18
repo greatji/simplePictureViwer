@@ -172,16 +172,75 @@ QImage * MainWindow::cool(int delta, QImage * origin){
 }
 
 
+QImage * MainWindow::saturation(int delta, QImage * origin){
+    QImage * newImage = new QImage(origin->width(), origin->height(), QImage::Format_ARGB32);
+
+    QColor oldColor;
+    QColor newColor;
+    int h,s,l;
+
+    for(int x=0; x<newImage->width(); x++){
+        for(int y=0; y<newImage->height(); y++){
+            oldColor = QColor(origin->pixel(x,y));
+
+            newColor = oldColor.toHsl();
+            h = newColor.hue();
+            s = newColor.saturation()+delta;
+            l = newColor.lightness();
+
+            //we check if the new value is between 0 and 255
+            s = qBound(0, s, 255);
+
+            newColor.setHsl(h, s, l);
+
+            newImage->setPixel(x, y, qRgb(newColor.red(), newColor.green(), newColor.blue()));
+        }
+    }
+
+    return newImage;
+}
+
+QImage * MainWindow::contrast(double delta, QImage * origin) {
+    QImage * newImage = new QImage(origin->width(), origin->height(), QImage::Format_ARGB32);
+
+    QColor oldColor;
+    QColor newColor;
+    int h,s,l;
+    int r,g,b;
+    for(int x=0; x<newImage->width(); x++){
+        for(int y=0; y<newImage->height(); y++){
+            oldColor = QColor(origin->pixel(x,y));
+
+            r = oldColor.red();
+            g = oldColor.green();
+            b = oldColor.blue();
+
+            r = (r-127)*delta+127;
+            g = (g-127)*delta+127;
+            b = (b-127)*delta+127;
+
+
+            //we check if the new value is between 0 and 255
+            b = qBound(0, b, 255);
+            r = qBound(0, r, 255);
+            g = qBound(0, g, 255);
+
+            newImage->setPixel(x,y, qRgb(r,g,b));
+        }
+    }
+
+    return newImage;
+}
 
 void MainWindow::on_pushButton_clicked()
 {
-    newImg = changeLight(ui->spinBoxAdd->value(), newImg);
+    newImg = changeLight(20, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    newImg = changeLight(0-ui->spinBoxAdd->value(),newImg);
+    newImg = changeLight(-20,newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
@@ -199,13 +258,13 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    newImg = warm(ui->spinBoxWarm->value(), newImg);
+    newImg = warm(20, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
 void MainWindow::on_pushButton_5_clicked()
 {
-    newImg = cool(ui->spinBoxCool->value(), newImg);
+    newImg = cool(20, newImg);
     ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }
 
@@ -229,4 +288,44 @@ void MainWindow::on_actionSave_triggered()
             return;
         }
     }
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    QMatrix matrix;
+    matrix.rotate(-90);
+    *newImg = newImg->transformed(matrix);
+    ui->label->setPixmap(QPixmap::fromImage(*newImg));
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    QMatrix matrix;
+    matrix.rotate(90);
+    *newImg = newImg->transformed(matrix);
+    ui->label->setPixmap(QPixmap::fromImage(*newImg));
+}
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    newImg = saturation(20, newImg);
+    ui->label->setPixmap(QPixmap::fromImage(*newImg));
+}
+
+void MainWindow::on_pushButton_10_clicked()
+{
+    newImg = saturation(-20, newImg);
+    ui->label->setPixmap(QPixmap::fromImage(*newImg));
+}
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    newImg = contrast(1.1, newImg);
+    ui->label->setPixmap(QPixmap::fromImage(*newImg));
+}
+
+void MainWindow::on_pushButton_12_clicked()
+{
+    newImg = contrast(0.9, newImg);
+    ui->label->setPixmap(QPixmap::fromImage(*newImg));
 }

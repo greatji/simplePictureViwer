@@ -18,6 +18,8 @@ public:
     QImage * changeLight(int delta, QImage * origin);
     QImage * warm(int delta, QImage * origin);
     QImage * cool(int delta, QImage * origin);
+    QImage * saturation(int delta, QImage * origin);
+    QImage * contrast(double delta, QImage * origin);
     ~MainWindow();
 
 private slots:
@@ -42,6 +44,18 @@ private slots:
     void on_pushButton_5_clicked();
 
     void on_actionSave_triggered();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
+    void on_pushButton_12_clicked();
 
 private:
     QString filename;

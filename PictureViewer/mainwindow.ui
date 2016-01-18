@@ -52,21 +52,11 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QSpinBox" name="spinBoxAdd">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>10</y>
-      <width>47</width>
-      <height>24</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>10</y>
+      <y>0</y>
       <width>115</width>
       <height>32</height>
      </rect>
@@ -75,21 +65,11 @@
      <string>增加亮度</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBoxReduce">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>50</y>
-      <width>47</width>
-      <height>24</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>50</y>
+      <x>700</x>
+      <y>0</y>
       <width>115</width>
       <height>32</height>
      </rect>
@@ -102,7 +82,7 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>100</y>
+      <y>30</y>
       <width>115</width>
       <height>32</height>
      </rect>
@@ -115,7 +95,7 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>150</y>
+      <y>60</y>
       <width>115</width>
       <height>32</height>
      </rect>
@@ -127,8 +107,8 @@
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>190</y>
+      <x>700</x>
+      <y>60</y>
       <width>115</width>
       <height>32</height>
      </rect>
@@ -141,7 +121,7 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>230</y>
+      <y>240</y>
       <width>115</width>
       <height>32</height>
      </rect>
@@ -176,24 +156,82 @@
      <string>邮箱： 1593721009@qq.com</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBoxWarm">
+   <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>150</y>
-      <width>47</width>
-      <height>24</height>
+      <x>590</x>
+      <y>120</y>
+      <width>115</width>
+      <height>32</height>
      </rect>
     </property>
+    <property name="text">
+     <string>向左旋转</string>
+    </property>
    </widget>
-   <widget class="QSpinBox" name="spinBoxCool">
+   <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>190</y>
-      <width>47</width>
-      <height>24</height>
+      <x>700</x>
+      <y>120</y>
+      <width>115</width>
+      <height>32</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>向右旋转</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>90</y>
+      <width>115</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>增加饱和度</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>90</y>
+      <width>115</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>减小饱和度</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_11">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>150</y>
+      <width>115</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>增加对比度</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_12">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>150</y>
+      <width>115</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>减小对比度</string>
     </property>
    </widget>
   </widget>
